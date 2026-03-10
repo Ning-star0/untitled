@@ -1,0 +1,18 @@
+import java.io.*;
+
+public class FileReaderDemo {
+    public static String readFirstLine(String filename) throws IOException {
+        try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
+            return br.readLine();
+        }
+    }
+
+    public static void main(String[] args) {
+        try {
+            String line = readFirstLine("test.txt");
+            System.out.println("第一行内容: " + line);
+        } catch (IOException e) {
+            System.out.println("文件读取失败: " + e.getMessage());
+        }
+    }
+}
